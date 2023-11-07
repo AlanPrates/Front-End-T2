@@ -12,7 +12,7 @@ Este repositório é exclusivo para projetos de Front-End relacionados à discip
 
 ## Conteúdo
 
-- [Projeto 1: Carta de Apresentação](/Carta-de-Apresentação/index.html)
+- [Projeto 1: Carta de Apresentação](https://alanprates.github.io/Front-End-T2/Carta-de-Apresentação/index.html)
 
 
 
