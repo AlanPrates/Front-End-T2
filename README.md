@@ -4,11 +4,17 @@ Este repositório é dedicado ao desenvolvimento de projetos de Front-End para a
 
 ## Autor
 
-Nome Completo: [Alan Prates dos Santos]
+Nome Completo: Alan Prates
 
 ## Descrição
 
 Este repositório é exclusivo para projetos de Front-End relacionados à disciplina T2.
+
+## Conteúdo
+
+- [Projeto 1: Carta de Apresentação](/Carta-de-Apresentação/index.html)
+
+
 
 ## Licença
 
