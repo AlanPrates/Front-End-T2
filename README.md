@@ -4,7 +4,7 @@ Este repositório é dedicado ao desenvolvimento de projetos de Front-End para a
 
 ## Autor
 
-Nome Completo: Alan Prates
+Nome Completo: Alan Prates dos Santos
 
 ## Descrição
 
