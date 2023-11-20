@@ -10,11 +10,6 @@ Nome Completo: Alan Prates dos Santos
 
 Este repositório é exclusivo para projetos de Front-End-T2.
 
-## Conteúdo
-
-- [Projeto 1: Carta de Apresentação](https://alanprates.github.io/Front-End-T2/Carta-de-Apresentação/index.html)
-
-
 
 ## Licença
 
