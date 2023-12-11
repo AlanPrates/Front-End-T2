@@ -82,7 +82,6 @@ async function obterPrevisaoTempoIlheus() {
     console.error('Erro ao obter dados de previsão do tempo:', erro);
   }
 }
-
 function exibirPrevisaoTempoIlheus(dados) {
   const quadroServicos = document.getElementById('quadro-servicos');
 
@@ -94,16 +93,25 @@ function exibirPrevisaoTempoIlheus(dados) {
   const temperatura = dados.current.temp_c;
   const descricao = dados.current.condition.text;
 
-  console.log('Temperatura:', temperatura);
-  console.log('Descrição:', descricao);
+  // Tradução das condições meteorológicas
+  const traducoes = {
+    'Partly cloudy': 'Parcialmente nublado',
+    // Adicione mais traduções conforme necessário
+  };
 
-  // Aqui, adicionamos o h2
-  quadroServicos.innerHTML = `<h2>Serviços</h2><div class="barra-titulo-interno"></div><p id="previsao-tempo"><strong>Previsão do Tempo:</strong> ${descricao}, Temperatura: ${temperatura}°C</p>`;
+  const descricaoTraduzida = traducoes[descricao] || descricao;
+
+  // Inclua o título h2 junto com os dados
+  quadroServicos.innerHTML = `<h2>Serviços</h2><div class="barra-titulo-interno"></div><p><strong>Previsão do Tempo na Cidade de Ilhéus:</strong> ${descricaoTraduzida}, Temperatura: ${temperatura}°C</p>`;
 }
+
+// Chame as funções necessárias
+$(document).ready(() => {
+  obterPrevisaoTempoIlheus();
+});
 
 // Chame as funções necessárias
 $(document).ready(() => {
   obterDadosNasa();
   obterNoticias();
-  obterPrevisaoTempoIlheus();
 });
