@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 interface Noticia {
   title: string;
   description: string;
-  // Adicione mais propriedades conforme necessário
 }
 
 interface DadosNasa {
   title: string;
   explanation: string;
-  // Adicione mais propriedades conforme necessário
 }
 
 interface DadosNoticias {
@@ -25,13 +23,11 @@ interface DadosPrevisaoTempo {
     condition: {
       text: string;
     };
-    // Adicione mais propriedades conforme necessário
   };
 }
 
 interface Traducoes {
-  'Partly cloudy': string;
-  // Adicione mais traduções conforme necessário
+  [key: string]: string;
 }
 
 @Component({
@@ -59,7 +55,7 @@ export class AppComponent implements OnInit {
       const resposta = await fetch(nasaApiUrl);
 
       if (!resposta.ok) {
-        throw new Error('Erro ao obter dados da API da NASA');
+        throw new Error(`Erro ao obter dados da API da NASA. Código de status: ${resposta.status}`);
       }
 
       const dados: DadosNasa[] = await resposta.json();
@@ -86,18 +82,23 @@ export class AppComponent implements OnInit {
       const resposta = await fetch(newsApiUrl);
 
       if (!resposta.ok) {
-        throw new Error('Erro ao obter dados da API de notícias');
+        throw new Error(`Erro ao obter dados da API de notícias. Código de status: ${resposta.status}`);
       }
 
       const dados: DadosNoticias = await resposta.json();
+      console.log('Dados de notícias recebidos:', dados);
       this.exibirNoticias(dados.articles);
     } catch (erro) {
       console.error('Erro ao obter dados de notícias:', erro);
     }
   }
 
-  exibirNoticias(dados: Noticia[]) {
-    this.noticias = dados;
+  exibirNoticias(noticias: Noticia[]) {
+    if (noticias && noticias.length > 0) {
+      this.noticias = noticias;
+    } else {
+      console.warn('Nenhuma notícia disponível.');
+    }
   }
 
   async obterPrevisaoTempoIlheus() {
@@ -108,10 +109,11 @@ export class AppComponent implements OnInit {
       const resposta = await fetch(ilheusWeatherApiUrl);
 
       if (!resposta.ok) {
-        throw new Error('Erro ao obter dados da API de previsão do tempo');
+        throw new Error(`Erro ao obter dados da API de previsão do tempo. Código de status: ${resposta.status}`);
       }
 
       const dados: DadosPrevisaoTempo = await resposta.json();
+      console.log('Dados de previsão do tempo recebidos:', dados);
       this.exibirPrevisaoTempoIlheus(dados);
     } catch (erro) {
       console.error('Erro ao obter dados de previsão do tempo:', erro);
