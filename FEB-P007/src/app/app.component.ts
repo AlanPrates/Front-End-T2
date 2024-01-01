@@ -32,8 +32,9 @@ class ButtonInfo {
         </div>
 
         <div class="button-row-roxo">
-          <button mat-raised-button>{{ selectedVehicle }}</button>
-        </div>
+        <button mat-raised-button ="selecionarPropriedade('Supermarine Spitfire')">Supermarine Spitfire</button>
+      </div>
+      
 
         <div class="button-row-adicionar">
           <button mat-raised-button (click)="adicionarVeiculo()">Adicionar</button>
