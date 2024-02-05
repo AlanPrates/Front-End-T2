@@ -19,7 +19,8 @@ export class FormUsuarioComponent {
       address: ['', Validators.required],
       birthDate: ['', [Validators.required, this.ageValidator]],
       gender: ['', Validators.required],
-      profession: ['', Validators.required]
+      profession: ['', Validators.required],
+      agreeTerms: [false, Validators.requiredTrue]
     });
   }
 
@@ -60,5 +61,4 @@ export class FormUsuarioComponent {
       console.log(user);
     }
   }
-  
 }
